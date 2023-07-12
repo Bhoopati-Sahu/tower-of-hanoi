@@ -1,0 +1,29 @@
+#include<iostream>
+using namespace std;
+int count=0;
+void solve(int n,int s,int d,int h)
+{
+
+    if(n==1)
+    {
+        cout<<"move "<<n<<"from "<<s<<"to "<<d<<endl;
+        count =count+1;
+        return;
+    }
+
+    solve(n-1,s,h,d);
+
+    cout<<"move "<<n<<"from "<<s<<"to "<<d<<endl;
+    count++;
+    solve(n-1,h,d,s);
+
+
+}
+int main()
+{
+     int n;
+    cin>>n;
+    solve(n,1,3,2);
+    cout<<"total number of steps required "<<count;
+
+}
